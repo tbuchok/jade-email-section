@@ -1,0 +1,24 @@
+include ../../jade-email-doc/email-doc.jade
+include ../../jade-email-body/email-body.jade
+include ../../jade-bulletproof-button/bullet-proof-button.jade
+include ../email-section.jade
+
++doc
+  +body(background = 'http://i.imgur.com/XCnBXwP.png')
+    +section(width = 640)
+      +section(width = 320, align = 'left')
+        h1 Compose New
+        p Lorem ipsum Excepteur proident aliqua ex Ut Duis qui enim elit proident culpa aute sunt dolor.
+      +section(width = 320, align = 'right')
+        h1 Compose New
+        p Lorem ipsum Excepteur proident aliqua ex Ut Duis qui enim elit proident culpa aute sunt dolor.
+      | { if this then that }
+      +section(width = 320, align = 'right')
+        h1 Compose New
+        p
+          | { This is the special content. }
+      | { endif }
+      +section(width = 640, align = 'center')
+        h2 This is a supreme awesome thing
+        +button(bgcolor = '#536895', color = '#ffffff', border = '1px solid #1e3650', border-radius = '4px', height = '40px', width = '200px', href = 'http://buttons.cm/')
+          | Connect with us

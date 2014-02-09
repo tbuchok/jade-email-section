@@ -1,0 +1,15 @@
+mixin section
+  - classes = (attributes.class || []).join(' ')
+  - width = attributes.width || 640
+  - cellspacing = attributes.cellspacing || 0
+  - cellpadding = attributes.cellpadding || 0
+  - border = attributes.border || 0
+  - align = attributes.align
+  - valign = attributes.valign
+  table(width = width, cellspacing = cellspacing, 
+        cellpadding = cellpadding, border = border, 
+        align = align, valign = valign, class = classes)
+    tr
+      td
+        if block
+          block
