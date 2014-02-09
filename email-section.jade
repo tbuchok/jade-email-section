@@ -5,11 +5,12 @@ mixin section
   - cellpadding = attributes.cellpadding || 0
   - border = attributes.border || 0
   - align = attributes.align
+  - tdAlign = attributes.tdalign || 'left'
   - valign = attributes.valign
   table(width = width, cellspacing = cellspacing, 
         cellpadding = cellpadding, border = border, 
         align = align, valign = valign, class = classes)
     tr
-      td
+      td(align = tdAlign)
         if block
           block
