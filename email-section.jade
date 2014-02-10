@@ -6,11 +6,14 @@ mixin section
   - border = attributes.border || 0
   - align = attributes.align
   - tdAlign = attributes.tdalign || 'left'
+  - tdHeight = attributes.tdHeight
   - valign = attributes.valign
+  - bgcolor = attributes.bgcolor
   table(width = width, cellspacing = cellspacing, 
         cellpadding = cellpadding, border = border, 
-        align = align, valign = valign, class = classes)
+        align = align, valign = valign,
+        class = classes, bgcolor = bgcolor)
     tr
-      td(align = tdAlign)
+      td(align = tdAlign, height = tdHeight)
         if block
           block
