@@ -1,12 +1,12 @@
 mixin section
   - classes = attributes.class;
-  - width = attributes.width || 640
+  - width = attributes.width || '100%'
   - cellspacing = attributes.cellspacing || 0
   - cellpadding = attributes.cellpadding || 0
   - border = attributes.border || 0
   - align = attributes.align
   - tdAlign = attributes.tdalign || 'left'
-  - tdHeight = attributes.tdHeight
+  - tdHeight = attributes.tdHeight || attributes.tdheight
   - valign = attributes.valign
   - bgcolor = attributes.bgcolor
   table(width = width, cellspacing = cellspacing, 
