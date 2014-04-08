@@ -1,3 +1,18 @@
+mixin table
+  - classes = attributes.class;
+  - width = attributes.width || '100%'
+  - cellspacing = attributes.cellspacing || 0
+  - cellpadding = attributes.cellpadding || 0
+  - border = attributes.border || 0
+  - align = attributes.align
+  - bgcolor = attributes.bgcolor
+  table(width = width, cellspacing = cellspacing, 
+        cellpadding = cellpadding, border = border, 
+        align = align, valign = valign,
+        class = classes, bgcolor = bgcolor)
+    if block
+      block
+
 mixin section
   - classes = attributes.class;
   - width = attributes.width || '100%'
@@ -7,6 +22,7 @@ mixin section
   - align = attributes.align
   - tdAlign = attributes.tdalign || 'left'
   - tdHeight = attributes.tdHeight || attributes.tdheight
+  - tdWidth = attributes.tdWidth || attributes.tdwidth
   - valign = attributes.valign
   - bgcolor = attributes.bgcolor
   table(width = width, cellspacing = cellspacing, 
@@ -14,7 +30,7 @@ mixin section
         align = align, valign = valign,
         class = classes, bgcolor = bgcolor)
     tr
-      td(align = tdAlign, height = tdHeight)
+      td(align = tdAlign, height = tdHeight, width = tdWidth)
         if block
           block
           
