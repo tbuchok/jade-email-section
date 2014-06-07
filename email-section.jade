@@ -6,6 +6,7 @@ mixin table
   - border = attributes.border || 0
   - align = attributes.align
   - bgcolor = attributes.bgcolor
+
   table(width = width, cellspacing = cellspacing, 
         cellpadding = cellpadding, border = border, 
         align = align, valign = valign,
@@ -25,12 +26,34 @@ mixin section
   - tdWidth = attributes.tdWidth || attributes.tdwidth
   - valign = attributes.valign
   - bgcolor = attributes.bgcolor
+  - background = attributes.background
+  - elementName = 'v:rect'
+  - attrs = {}
+  - attrs['xmlns:v'] = "urn:schemas-microsoft-com:vml" 
+  - attrs['fill'] = true;
+  - attrs['stroke'] = 'false';
+  - attrs['style'] = 'width: ' + tdWidth + 'px; height: ' + tdHeight + 'px;';
+  - attrs['class'] = attributes.class;
+  - result = Object.keys(attrs).reduce(function(p, k) { if (attrs[k]) p.push(k + '="' + attrs[k] + '"'); return p; }, []).join(' ')
+
   table(width = width, cellspacing = cellspacing, 
         cellpadding = cellpadding, border = border, 
-        align = align, valign = valign,
-        class = classes, bgcolor = bgcolor)
+        align = align, class = classes, bgcolor = bgcolor)
     tr
-      td(align = tdAlign, height = tdHeight, width = tdWidth, class = classes)
-        if block
+      td(align = tdAlign, valign = valign, height = tdHeight, width = tdWidth, background = background, class = classes)
+        if background
+          <!--[if gte mso 9]>
+          <v:rect !{result}>
+          v:fill(type = "tile", src = background, color= bgcolor)/
+          | <v:textbox inset="0,0,0,0">
+          <![endif]-->
+          <div>
+          block
+          </div>
+          <!--[if gte mso 9]>
+          </v:textbox>
+          </v:rect>
+          <![endif]-->
+        else
           block
           
